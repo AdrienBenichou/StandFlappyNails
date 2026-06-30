@@ -139,8 +139,8 @@
   <div id="s-victory" class="scr">
     <div style="font-size:48px;">🎉</div>
     <div class="g8"></div>
-    <div style="font-family:'BrasikaDisplay',sans-serif;font-size:30px;color:var(--bx);text-align:center;">Bravo, t'as réussi !</div>
-    <div class="sub">Laisse ton email pour découvrir ton lot</div>
+    <div style="font-family:'BrasikaDisplay',sans-serif;font-size:30px;color:var(--bx);text-align:center;">Bravo tu as gagné !</div>
+    <div class="sub">Rentre ton mail pour recevoir ton lot !</div>
     <div class="g20"></div>
     <div class="fgroup">
       <label class="flabel">Ton email</label>
@@ -1073,9 +1073,9 @@ function startGame(){ resetGame(); gState='ready'; show(null); }
 function loop(ts){
   const dt=lastTime?Math.min((ts-lastTime)/(1000/60),3):1; lastTime=ts;
   const t=Date.now()*0.001;
-  if(gState==='playing'||gState==='won'){
+  if(gState==='playing'){
     bgScroll=(bgScroll+pSpeed()*0.38*dt)%BG_LOOP; updateGame(dt); drawGame(t);
-  } else if(gState==='dead'){
+  } else if(gState==='won'||gState==='dead'){
     // hold frame
   } else if(gState==='ready'){
     bgScroll=(bgScroll+0.38*dt)%BG_LOOP; idleF+=dt; drawIdleFrame(t); drawTapHint();
